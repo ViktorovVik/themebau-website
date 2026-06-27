@@ -1,0 +1,52 @@
+@use '@/app/styles/helpers/index' as *;
+
+.button {
+  @include flex-center(true);
+
+  border: none;
+  padding: 0;
+  white-space: nowrap;
+  color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition-duration: var(--transition-duration-longer);
+
+  &[disabled] {
+    @include disabled;
+  }
+}
+
+.primary {
+  background-color: var(--color-dark);
+  width: fluid-to-laptop(170, 130);
+  height: 54px;
+  column-gap: fluid-to-laptop(20, 10);
+  color: var(--color-white);
+
+  @include hover {
+    background-color: var(--color-dark-alt);
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  width: fluid-to-laptop(64, 44);
+  height: 26px;
+  column-gap: fluid-to-laptop(20, 10);
+}
+
+.circle {
+  @include square(90px);
+
+  background-color: var(--color-white);
+  border-radius: 50%;
+}
+
+.white {
+  background-color: var(--color-white);
+  width: fluid-to-laptop(170, 130);
+  height: 54px;
+  column-gap: fluid-to-laptop(20, 10);
+  color: var(--color-dark);
+}
