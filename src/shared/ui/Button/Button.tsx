@@ -1,5 +1,6 @@
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.scss';
+import cn from 'clsx';
 
 type ButtonTypes = 'primary' | 'circle' | 'transparent' | 'white';
 
@@ -14,7 +15,7 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <button className={`${styles.button} ${styles[variant]}`} {...rest}>
+    <button className={cn(styles.button, styles[variant])} {...rest}>
       {children}
     </button>
   );

@@ -1,0 +1,11 @@
+@use '@/app/styles/helpers' as *;
+
+.list {
+  display: flex;
+  align-items: end;
+  column-gap: 16px;
+}
+
+.iconSvg {
+  @include square(15px);
+}
