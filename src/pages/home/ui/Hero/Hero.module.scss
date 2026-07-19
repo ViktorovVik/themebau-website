@@ -1,0 +1,62 @@
+@use '@/app/styles/helpers' as *;
+
+.inner {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 25%;
+  left: 19%;
+  z-index: 9;
+}
+
+.line {
+  &::before {
+    content: '';
+    display: block;
+    margin-bottom: 36px;
+    width: 70px;
+    height: 1.5px;
+    background-color: var(--color-white);
+  }
+}
+
+.title {
+  max-width: 516px;
+  color: var(--color-white);
+  user-select: none;
+}
+
+.view {
+  @include square(90px);
+
+  position: absolute;
+  right: 15%;
+  bottom: 15%;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  font-size: 15px;
+}
+
+:global(.swiper-pagination) {
+  width: 150px;
+  margin-bottom: 50px;
+  margin-left: 190px;
+  margin-right: auto;
+  color: var(--color-white);
+}
+
+:global(.divider) {
+  width: 20px;
+  padding-inline: 15px;
+}
+
+:global(.swiper-button-prev)::after,
+:global(.swiper-button-next)::after {
+  content: none;
+}
