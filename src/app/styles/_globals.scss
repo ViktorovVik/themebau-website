@@ -32,12 +32,14 @@ h5,
 .h5,
 h6,
 .h6 {
+  margin: 0;
   font-weight: 500;
 }
 
 h1,
 .h1 {
-  @include fluid-text(80, 38);
+  @include fluid-text(70, 38);
+  line-height: 1.1;
 }
 
 h2,

@@ -1,0 +1,40 @@
+@use '@/app/styles/helpers' as *;
+
+.sliderWrapper {
+  position: relative;
+}
+
+.svgEl {
+  @include square(30px);
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-white);
+  cursor: pointer;
+  z-index: 10;
+
+  @include hover {
+    color: var(--color-gray);
+  }
+}
+
+.prev {
+  left: -60px;
+
+  @include laptop {
+    left: 10px;
+  }
+}
+
+.next {
+  right: -60px;
+  transform: translateY(-50%) rotate(180deg);
+
+  @include laptop {
+    right: 10px;
+  }
+}
