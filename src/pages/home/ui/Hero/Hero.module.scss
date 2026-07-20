@@ -18,7 +18,15 @@
 }
 
 .heroSlider {
-  background: linear-gradient(0deg, rgba(14, 14, 14, 0.20) 0%, rgba(14, 14, 14, 0.20) 100%), lightgray 50% / cover no-repeat;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.heroSlider img {
+  height: fluid(580, 430);
 }
 
 .content {
@@ -26,6 +34,11 @@
   top: 25%;
   left: 19%;
   z-index: 9;
+  pointer-events: none;
+
+  @include mobile {
+    left: 10%;
+  }
 }
 
 .line {
@@ -63,7 +76,7 @@
 :global(.swiper-pagination) {
   width: 150px;
   margin-bottom: 50px;
-  margin-left: 190px;
+  margin-left: fluid(190, 0);
   margin-right: auto;
   color: var(--color-white);
 }

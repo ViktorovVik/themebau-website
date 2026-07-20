@@ -24,9 +24,17 @@
 
 .prev {
   left: -60px;
+
+  @include laptop {
+    left: 10px;
+  }
 }
 
 .next {
   right: -60px;
   transform: translateY(-50%) rotate(180deg);
+
+  @include laptop {
+    right: 10px;
+  }
 }

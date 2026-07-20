@@ -37,7 +37,7 @@ export const Hero = () => {
   return (
     <section className={style.hero}>
       <div className={cn(style.inner, 'container')}>
-        <Slider slides={slides} navigation className={style.heroSlider}/>
+        <Slider slides={slides} navigation className={style.heroSlider} />
         <div className={style.content}>
           <span className={style.line}></span>
           <h1 className={cn(style.title, 'h1')}>Colibri Creative Project</h1>
