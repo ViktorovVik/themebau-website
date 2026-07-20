@@ -44,7 +44,7 @@ export const Slider = ({
         ))}
       </Swiper>
       {navigation && (
-        <div className="hidden-mobile">
+        <div className="hidden-tablet">
           <button
             className={cn(styles.prev, 'swiper-arrow-prev')}
             type="button"
