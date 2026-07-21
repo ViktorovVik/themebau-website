@@ -21,6 +21,7 @@ export const Slider = ({
   return (
     <div className={styles.sliderWrapper}>
       <Swiper
+        wrapperTag="ul"
         className={cn(styles.swiper, className)}
         modules={[Navigation, Pagination, A11y]}
         slidesPerView={1}
@@ -40,7 +41,7 @@ export const Slider = ({
         }}
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index}>{slide}</SwiperSlide>
+          <SwiperSlide tag="li" key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>
       {navigation && (
