@@ -2,6 +2,7 @@
 
 .hero {
   position: relative;
+  z-index: 10;
 
   &::before {
     content: '';
@@ -9,7 +10,6 @@
     inset: 0 0 14% 0;
     display: block;
     background-color: var(--color-dark);
-    width: 100%;
   }
 }
 
@@ -42,14 +42,12 @@
 }
 
 .line {
-  &::before {
-    content: '';
-    display: block;
-    margin-bottom: 36px;
-    width: 70px;
-    height: 1.5px;
-    background-color: var(--color-white);
-  }
+  content: '';
+  display: block;
+  margin-bottom: 36px;
+  width: 70px;
+  height: 1.5px;
+  background-color: var(--color-white);
 }
 
 .title {
