@@ -63,22 +63,19 @@
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 20px;
   grid-column: 2;
   justify-self: start;
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  width: fluid(170, 130);
-  height: 54px;
-
 
   @include tablet {
     grid-column: 1;
-    justify-self: end;
+    justify-self: center;
     margin-top: 20px;
+    width: 50%;
+  }
+
+  @include mobile {
+    justify-self: end;
+    width: 170px;
   }
 }
 
