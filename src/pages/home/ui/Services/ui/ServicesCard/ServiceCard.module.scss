@@ -1,0 +1,86 @@
+@use '@/app/styles/helpers' as *;
+
+.card {
+  display: grid;
+  grid-template-areas: "stack";
+  grid-template-rows: 400px;
+  height: 400px;
+  overflow: hidden;
+  color: var(--color-white);
+
+  &::before {
+    content: '';
+    grid-area: stack;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 80%);
+    z-index: 1;
+  }
+
+  & > * {
+    grid-area: stack;
+    min-height: 0;
+  }
+
+  @include hover {
+    .cardLink {
+      transform: translateY(0);
+    }
+
+    .cardContent {
+      transform: translateY(20px);
+    }
+  }
+
+  @include mobile {
+    max-height: 400px;
+  }
+}
+
+.cardImg {
+  @include square(100%);
+}
+
+.iconSvg {
+  @include square(32px);
+}
+
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid(24, 15);
+  align-self: end;
+  padding-left: fluid-to-laptop(50, 15);
+  padding-bottom: fluid(50, 15);
+  transform: translateY(50px);
+  transition: transform var(--transition-duration-longer);
+  z-index: 2;
+
+  @include tablet {
+    transform: translateY(0);
+
+  }
+}
+
+.cardTitle {
+  font-size: fluid(20, 16);
+  line-height: 1.5
+}
+
+.cardLink {
+  align-items: center;
+  justify-content: unset;
+  column-gap: 17px;
+  transform: translateY(100%);
+  font-size: 15px;
+
+  @include tablet {
+    transform: translateY(0);
+  }
+}
+
+.arrow {
+  @include square(18px);
+
+  flex-shrink: 0;
+  transform: rotate(180deg);
+}

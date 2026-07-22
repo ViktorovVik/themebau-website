@@ -1,0 +1,14 @@
+@use '@/app/styles/helpers' as *;
+
+.services {
+  padding-bottom: fluid(140, 40);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+
+  @include tablet { grid-template-columns: repeat(2, 1fr); }
+  @include mobile { grid-template-columns: 1fr; }
+}
