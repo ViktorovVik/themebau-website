@@ -1,7 +1,6 @@
-import { Link } from "react-router";
 import style from './About.module.scss';
 import cn from "clsx";
-import { Subtitle } from "@/shared/ui";
+import { Button, Subtitle } from "@/shared/ui";
 import deco from '@/shared/assets/deco/1.svg';
 
 
@@ -34,7 +33,7 @@ export const About = () => {
             evening, gathered Forth so he. Life that dry of created
             greater can't also gathered female green.
           </p>
-          <Link className={style.button} to="/agency">about us <span className={style.dot}></span></Link>
+          <Button className={style.button} to="/agency">about us <span className={style.dot}></span></Button>
         </div>
       </div>
     </section>
