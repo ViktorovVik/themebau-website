@@ -1,0 +1,79 @@
+@use '@/app/styles/helpers' as *;
+
+
+.featured {
+  padding-bottom: fluid(150, 40);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: fluid(48, 15);
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+  }
+}
+
+.title {
+  width: fluid(425, 300);
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.line {
+  display: block;
+  width: 70px;
+  height: 1.5px;
+  background-color: var(--color-black);
+
+  @include mobile {
+    width: 70%;
+  }
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include tablet {
+    display: flex;
+    column-gap: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+}
+
+.item {
+  @include tablet {
+    flex: 0 0 40%;
+    scroll-snap-align: start;
+  }
+}
+
+.item:nth-child(odd) {
+  margin-top: fluid(160, 80);
+
+  @include tablet {
+    margin-top: 0;
+  }
+}
+
+.card {
+  justify-self: center;
+}
+
