@@ -1,0 +1,65 @@
+@use '@/app/styles/helpers' as *;
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  @include hover {
+    .cardImg {
+      scale: 1.1;
+    }
+
+    .view {
+      color: var(--color-gray);
+    }
+  }
+}
+
+.cardImg {
+  margin-bottom: fluid(34, 20);
+  transition: scale  var(--transition-duration-longer);
+
+
+  @include tablet {
+    width: 100%;
+    height: fluid(428, 200);
+  }
+}
+
+.view {
+  @include square(fluid(90, 60));
+  @include flex-center(true);
+
+  position: absolute;
+  top: 45%;
+  left: fluid(80, 60);
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transition: color var(--transition-duration);
+}
+
+.cardTitle {
+  margin-bottom: 11px;
+}
+
+.cardLink {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+}
+
+.small {
+  width: 70%;
+}
+
+.large {
+  width: 100%;
+}
+
+.small,
+.large {
+  @include tablet { width: unset }
+}
