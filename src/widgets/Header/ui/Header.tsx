@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router';
 import cn from 'clsx';
 import styles from './Header.module.scss';
-import { NAV_ITEMS } from '@/widgets/Header/config/navItems';
+import { NAV_ITEMS } from '../config/navItems';
 import { Logo, Socials } from '@/shared/ui';
-import { BurgerButton } from '@/widgets/Header/ui/BurgerButton/BurgerButton.tsx';
+import { BurgerButton } from './BurgerButton';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={`${styles.headerInner}  container`}>
+      <div className={cn(styles.headerInner,  "container")}>
         <Logo />
         <div className={cn(styles.overlay, isOpen && styles.open)}>
           <div className={styles.contentWrapper}>
