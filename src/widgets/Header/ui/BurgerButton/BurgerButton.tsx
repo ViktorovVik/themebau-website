@@ -18,8 +18,8 @@ export const BurgerButton = ({
     <button
       className={cn(styles.burgerButton, isOpen && styles.open, className)}
       type="button"
-      aria-label="Open menu"
-      title="Open menu"
+      aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      title={isOpen ? 'Close menu' : 'Open menu'}
       aria-expanded={isOpen}
       onClick={toggleBurgerMenu}
       {...props}
