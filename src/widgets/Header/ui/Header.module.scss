@@ -9,13 +9,14 @@
   width: 100%;
   animation-name: scrolling-header;
   background-color: var(--color-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
   animation-fill-mode: both;
   animation-timeline: scroll();
-  animation-range: 0 100px;
+  animation-range: 0 200px;
 
   @keyframes scrolling-header {
     to {
-      border-color: var(--color-gray);
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
     }
   }
 }
