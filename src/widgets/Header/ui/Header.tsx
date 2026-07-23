@@ -15,6 +15,22 @@ export const Header = () => {
     setIsOpen((prev) => !prev);
   };
 
+
+  useEffect(() => {
+    if (isOpen) {
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setIsOpen(false);
+        }
+      }
+      document.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown)
+      }
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     setIsOpen(false)
   }, [location.pathname]);
@@ -30,6 +46,10 @@ export const Header = () => {
       document.documentElement.classList.remove('is-lock');
     };
   }, [isOpen]);
+
+  useEffect(() => {
+
+  }, [isOpen])
 
   return (
     <header className={styles.header}>
