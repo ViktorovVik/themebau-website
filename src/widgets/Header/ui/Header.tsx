@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 import cn from 'clsx';
 import styles from './Header.module.scss';
 import { NAV_ITEMS } from '@/widgets/Header/config/navItems';
@@ -9,9 +9,15 @@ import { BurgerButton } from '@/widgets/Header/ui/BurgerButton/BurgerButton.tsx'
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const location = useLocation();
+
   const toggleBurgerMenu = () => {
     setIsOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname]);
 
   useEffect(() => {
     if (isOpen) {
