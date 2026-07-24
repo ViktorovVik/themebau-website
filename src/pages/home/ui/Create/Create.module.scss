@@ -1,0 +1,77 @@
+@use '@/app/styles/helpers' as *;
+
+.create {
+  padding-block: fluid(150, 40);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+}
+
+.pictures {
+  display: grid;
+  grid-template-columns: repeat(2, 270px);
+  gap: 30px;
+
+  @include tablet {
+    justify-self: center;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bigPic {
+  grid-column: span 2;
+
+  @include mobile {
+    grid-column: span 1;
+  }
+}
+
+.smallPic {
+  justify-self: end;
+
+  @include mobile {
+    justify-self: start;
+    order: 1;
+  }
+}
+
+.info {
+  align-self: center;
+
+  @include tablet {
+    justify-self: center;
+  }
+}
+
+.title {
+  max-width: 357px;
+  margin-bottom: fluid(37, 20);
+}
+
+.text {
+  margin-bottom: fluid(53, 25);
+  max-width: 439px;
+
+  p {
+    line-height: 1.6;
+    font-size: 17px;
+  }
+}
+
+.bottom {
+  padding-left: fluid-to-laptop(80, 50);
+
+  @include mobile {
+    padding-left: 0;
+  }
+}
