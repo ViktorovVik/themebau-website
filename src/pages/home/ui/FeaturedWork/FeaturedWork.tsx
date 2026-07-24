@@ -15,9 +15,7 @@ export const FeaturedWork = () => {
             Featured work
           </h2>
           <span className={styles.line}></span>
-          <Button to="/portfolio">
-            all work
-          </Button>
+          <Button to="/portfolio">all work</Button>
         </div>
         <ul className={styles.list}>
           {FEATURED_WORKS.map(
