@@ -1,11 +1,26 @@
 @use '@/app/styles/helpers' as *;
 
 .work {
-  position: relative;
-  z-index: 1;
   background-color: var(--color-dark);
   color: var(--color-white);
   padding-block: fluid(160, 30);
+  overflow: clip;
+}
+
+.inner {
+  position: relative;
+  isolation: isolate;
+}
+
+.deco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transform: translate(40%, -80%);
+  pointer-events: none;
+  width: fluid(641, 300);
+  height: auto;
 }
 
 .content {
@@ -96,9 +111,24 @@
   p {
     width: fluid-to-laptop(395, 300);
     margin: 0;
+    animation-name: tab-animation;
+    animation-duration: var(--transition-duration-longer);
+
 
     @include mobile-s {
       width: 100%;
+    }
+
+
+    @keyframes tab-animation {
+      from {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
   }
 
@@ -116,4 +146,5 @@
 .button {
   margin-top: auto;
 }
+
 

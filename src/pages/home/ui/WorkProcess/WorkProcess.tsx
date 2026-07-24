@@ -3,6 +3,7 @@ import styles from './WorkProcess.module.scss';
 import cn from 'clsx';
 import { WORK_PROCESS } from './config/workprocess.data';
 import { Button } from '@/shared/ui';
+import deco from "@/shared/assets/deco/2.svg";
 
 const TITLE = 'work-process-title';
 
@@ -56,6 +57,14 @@ export const WorkProcess = () => {
   return (
     <section className={styles.work} aria-labelledby={TITLE}>
       <div className={cn(styles.inner, 'container')}>
+        <img
+          className={styles.deco}
+          src={deco}
+          alt=""
+          width={641}
+          height={641}
+          aria-hidden="true"
+        />
         <h2 id={TITLE} className={cn(styles.title, 'h3')}>
           Work process
         </h2>
@@ -96,7 +105,7 @@ export const WorkProcess = () => {
             id='work-process-panel'
             className={styles.info}
           >
-            <p>{activeStep?.text}</p>
+            <p key={activeId}>{activeStep?.text}</p>
             <Button to="/agency" className={styles.button} variant="white">
               read more
             </Button>
