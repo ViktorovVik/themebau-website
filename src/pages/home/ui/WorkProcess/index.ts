@@ -1,1 +1,1 @@
-export { WorkProcess } from './WorkProcess.tsx';
+export { WorkProcess } from './WorkProcess';
