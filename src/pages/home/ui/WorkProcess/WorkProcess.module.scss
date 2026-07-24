@@ -114,11 +114,9 @@
     animation-name: tab-animation;
     animation-duration: var(--transition-duration-longer);
 
-
     @include mobile-s {
       width: 100%;
     }
-
 
     @keyframes tab-animation {
       from {
@@ -146,5 +144,3 @@
 .button {
   margin-top: auto;
 }
-
-

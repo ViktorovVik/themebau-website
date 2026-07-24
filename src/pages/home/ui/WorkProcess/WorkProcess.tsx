@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState, type KeyboardEvent} from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import styles from './WorkProcess.module.scss';
 import cn from 'clsx';
 import { WORK_PROCESS } from './config/workprocess.data';
 import { Button } from '@/shared/ui';
-import deco from "@/shared/assets/deco/2.svg";
+import deco from '@/shared/assets/deco/2.svg';
 
 const TITLE = 'work-process-title';
 
@@ -20,14 +20,12 @@ export const WorkProcess = () => {
       return;
     }
 
-
     const activeID = document.getElementById(`tab-${activeId}`);
     activeID?.focus();
-  }, [activeId])
+  }, [activeId]);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     const currentIndex = WORK_PROCESS.findIndex((step) => step.id === activeId);
-
 
     if (e.key === 'ArrowDown') {
       e.preventDefault();
@@ -78,7 +76,7 @@ export const WorkProcess = () => {
                   <button
                     role="tab"
                     id={`tab-${id}`}
-                    aria-controls='work-process-panel'
+                    aria-controls="work-process-panel"
                     aria-selected={isActive}
                     tabIndex={isActive ? 0 : -1}
                     onClick={() => setActiveId(id)}
@@ -102,7 +100,7 @@ export const WorkProcess = () => {
           <div
             aria-labelledby={`tab-${activeId}`}
             role="tabpanel"
-            id='work-process-panel'
+            id="work-process-panel"
             className={styles.info}
           >
             <p key={activeId}>{activeStep?.text}</p>

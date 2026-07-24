@@ -3,7 +3,8 @@ import { About } from './About';
 import { Services } from './Services';
 import { FeaturedWork } from './FeaturedWork';
 import { WorkProcess } from './WorkProcess';
-import { Create } from "./Create";
+import { Create } from './Create';
+import { Values } from '@/pages/home/ui/Values';
 
 export const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ export const HomePage = () => {
       <FeaturedWork />
       <WorkProcess />
       <Create />
+      <Values />
     </>
   );
 };

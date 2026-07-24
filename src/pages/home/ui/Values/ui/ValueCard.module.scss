@@ -1,0 +1,54 @@
+@use '@/app/styles/helpers' as *;
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 71px 238px;
+  column-gap: 30px;
+
+  @include mobile {
+    grid-template-columns: 30px 238px;
+  }
+
+  @include mobile-s {
+    grid-template-columns: 20px 238px;
+  }
+
+  @include hover {
+    .readMore {
+      color: var(--color-gray);
+    }
+
+    .arrow {
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.cardLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.icon {
+  @include square(fluid(71, 40));
+  justify-self: start;
+}
+
+.arrow {
+  @include square(16px);
+  transform: rotate(180deg);
+}
+
+.readMore {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  transition: color var(--transition-duration);
+}

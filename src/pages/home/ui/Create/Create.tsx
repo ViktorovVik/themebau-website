@@ -1,12 +1,11 @@
 import styles from './Create.module.scss';
-import cn from "clsx";
-import { Button } from "@/shared/ui";
+import cn from 'clsx';
+import { Button } from '@/shared/ui';
 import img1 from '@/shared/assets/img/create/3.webp';
 import img2 from '@/shared/assets/img/create/2.webp';
 import img3 from '@/shared/assets/img/create/1.webp';
 
 const TITLE = 'create-section-title';
-
 
 export const Create = () => {
   return (
@@ -39,22 +38,21 @@ export const Create = () => {
           />
         </div>
         <div className={styles.info}>
-          <h2 id={TITLE} className={cn(styles.title, 'h5')}>We create everything
-            digital, printable and
-            analytical  🔥
+          <h2 id={TITLE} className={cn(styles.title, 'h5')}>
+            We create everything digital, printable and analytical 🔥
           </h2>
           <div className={styles.bottom}>
             <div className={styles.text}>
-              <p>Won't seasons, appear days them stars replenish
-                divided. All second forth. Him place was seas man and
-                gathering creepeth called fly. Them sea place lights,
-                midst bearing fourth above.
+              <p>
+                Won`t seasons, appear days them stars replenish divided. All
+                second forth. Him place was seas man and gathering creepeth
+                called fly. Them sea place lights, midst bearing fourth above.
               </p>
             </div>
-            <Button to='/agency'>read more</Button>
+            <Button to="/agency">read more</Button>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
