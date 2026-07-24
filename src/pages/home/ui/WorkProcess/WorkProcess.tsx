@@ -98,7 +98,7 @@ export const WorkProcess = () => {
           >
             <p>{activeStep?.text}</p>
             <Button to="/agency" className={styles.button} variant="white">
-              read more <span className={styles.dot}></span>
+              read more
             </Button>
           </div>
         </div>

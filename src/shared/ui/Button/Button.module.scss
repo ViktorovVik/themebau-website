@@ -24,6 +24,7 @@
   column-gap: fluid-to-laptop(20, 10);
   color: var(--color-white);
 
+
   @include hover {
     background-color: var(--color-dark-alt);
   }
@@ -49,4 +50,15 @@
   height: 54px;
   column-gap: fluid-to-laptop(20, 10);
   color: var(--color-dark);
+}
+
+.white,
+.primary {
+  &::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
 }

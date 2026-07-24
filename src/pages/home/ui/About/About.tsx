@@ -35,7 +35,7 @@ export const About = () => {
             green.
           </p>
           <Button className={style.button} to="/agency">
-            about us <span className={style.dot}></span>
+            about us
           </Button>
         </div>
       </div>
