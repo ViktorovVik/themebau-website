@@ -1,0 +1,36 @@
+@use '@/app/styles/helpers' as *;
+
+.values {
+  padding-bottom: fluid(130, 40);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid(85, 30);
+}
+
+.title {
+  text-align: center;
+}
+
+.list {
+  :global(.swiper-scrollbar) {
+    position: static;
+    margin-top: 80px;
+    margin-inline: auto;
+    height: 2px;
+    background-color: var(--color-gray);
+    width: fluid(370, 100);
+  }
+
+  :global(.swiper-scrollbar-drag) {
+    background-color: var(--color-dark);
+  }
+}
+
+.card {
+  @include mobile {
+    justify-self: center;
+  }
+}
