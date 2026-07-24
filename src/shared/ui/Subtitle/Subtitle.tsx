@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import cn from "clsx";
+import type { ReactNode } from 'react';
+import cn from 'clsx';
 import style from './Subtitle.module.scss';
 
 interface SubtitleProps {
@@ -8,5 +8,5 @@ interface SubtitleProps {
 }
 
 export const Subtitle = ({ className, children }: SubtitleProps) => {
-  return <span className={cn(style.subtitle, className)}>{children}</span>
-}
+  return <span className={cn(style.subtitle, className)}>{children}</span>;
+};

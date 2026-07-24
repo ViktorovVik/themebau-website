@@ -2,7 +2,7 @@
 
 .card {
   display: grid;
-  grid-template-areas: "stack";
+  grid-template-areas: 'stack';
   grid-template-rows: 400px;
   height: 400px;
   overflow: hidden;
@@ -11,7 +11,11 @@
   &::before {
     content: '';
     grid-area: stack;
-    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 80%);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.65) 0%,
+      transparent 80%
+    );
     z-index: 1;
   }
 
@@ -43,7 +47,6 @@
   @include square(32px);
 }
 
-
 .cardContent {
   display: flex;
   flex-direction: column;
@@ -57,13 +60,12 @@
 
   @include tablet {
     transform: translateY(0);
-
   }
 }
 
 .cardTitle {
   font-size: fluid(20, 16);
-  line-height: 1.5
+  line-height: 1.5;
 }
 
 .cardLink {
