@@ -16,7 +16,7 @@ export const FeaturedWork = () => {
           </h2>
           <span className={styles.line}></span>
           <Button to="/portfolio">
-            all work <span className={styles.dot}></span>
+            all work
           </Button>
         </div>
         <ul className={styles.list}>
