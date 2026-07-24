@@ -3,7 +3,6 @@ import img2 from '@/shared/assets/img/featured/image-2.webp';
 import img3 from '@/shared/assets/img/featured/image-3.webp';
 import img4 from '@/shared/assets/img/featured/image-4.webp';
 
-
 export interface FeaturedCard {
   id: string;
   src: string;
@@ -25,7 +24,7 @@ export const FEATURED_WORKS: FeaturedCard[] = [
     to: '/portfolio',
     width: 370,
     height: 428,
-    size: "small"
+    size: 'small',
   },
   {
     id: '2',
@@ -36,7 +35,7 @@ export const FEATURED_WORKS: FeaturedCard[] = [
     hasView: true,
     width: 600,
     height: 428,
-    size: "large"
+    size: 'large',
   },
   {
     id: '3',
@@ -46,7 +45,7 @@ export const FEATURED_WORKS: FeaturedCard[] = [
     to: '/portfolio',
     width: 600,
     height: 428,
-    size: "large"
+    size: 'large',
   },
   {
     id: '4',
@@ -56,6 +55,6 @@ export const FEATURED_WORKS: FeaturedCard[] = [
     to: '/portfolio',
     width: 370,
     height: 428,
-    size: "small"
+    size: 'small',
   },
-]
+];

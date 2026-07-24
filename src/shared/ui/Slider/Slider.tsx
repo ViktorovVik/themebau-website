@@ -41,7 +41,9 @@ export const Slider = ({
         }}
       >
         {slides.map((slide, index) => (
-          <SwiperSlide tag="li" key={index}>{slide}</SwiperSlide>
+          <SwiperSlide tag="li" key={index}>
+            {slide}
+          </SwiperSlide>
         ))}
       </Swiper>
       {navigation && (

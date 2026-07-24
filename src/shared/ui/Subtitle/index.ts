@@ -1,1 +1,1 @@
-export { Subtitle } from './Subtitle.tsx'
+export { Subtitle } from './Subtitle.tsx';

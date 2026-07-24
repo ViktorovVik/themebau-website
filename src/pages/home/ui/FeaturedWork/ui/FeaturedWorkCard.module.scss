@@ -17,8 +17,7 @@
 
 .cardImg {
   margin-bottom: fluid(34, 20);
-  transition: scale  var(--transition-duration-longer);
-
+  transition: scale var(--transition-duration-longer);
 
   @include tablet {
     width: 100%;
@@ -61,5 +60,7 @@
 
 .small,
 .large {
-  @include tablet { width: unset }
+  @include tablet {
+    width: unset;
+  }
 }

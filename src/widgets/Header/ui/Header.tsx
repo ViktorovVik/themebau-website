@@ -15,24 +15,23 @@ export const Header = () => {
     setIsOpen((prev) => !prev);
   };
 
-
   useEffect(() => {
     if (isOpen) {
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
           setIsOpen(false);
         }
-      }
+      };
       document.addEventListener('keydown', handleKeyDown);
 
       return () => {
-        document.removeEventListener('keydown', handleKeyDown)
-      }
+        document.removeEventListener('keydown', handleKeyDown);
+      };
     }
   }, [isOpen]);
 
   useEffect(() => {
-    setIsOpen(false)
+    setIsOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -47,13 +46,11 @@ export const Header = () => {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-
-  }, [isOpen])
+  useEffect(() => {}, [isOpen]);
 
   return (
     <header className={styles.header}>
-      <div className={cn(styles.headerInner,  "container")}>
+      <div className={cn(styles.headerInner, 'container')}>
         <Logo />
         <div className={cn(styles.overlay, isOpen && styles.open)}>
           <div className={styles.contentWrapper}>

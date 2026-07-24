@@ -1,0 +1,125 @@
+@use '@/app/styles/helpers' as *;
+
+.work {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding-block: fluid(160, 30);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @include mobile-above {
+    padding-left: 70px;
+  }
+
+  @include mobile {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--color-white);
+  }
+}
+
+.title {
+  margin-bottom: fluid(80, 30);
+}
+
+.itemButton {
+  position: relative;
+  isolation: isolate;
+  color: var(--color-gray);
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -90px;
+    width: 0;
+    top: 0.5em;
+    height: 1px;
+    background-color: var(--color-white);
+    transition: width var(--transition-duration-longer) ease-in;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &.active {
+    color: var(--color-white);
+
+    @include mobile-above {
+      transform: translateX(25px);
+
+      &::before {
+        width: 40px;
+      }
+    }
+  }
+}
+
+.nums {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(fluid(20, 10)) translateY(-10px);
+  font-size: 12px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  font-size: 17px;
+  line-height: 1.6;
+
+  p {
+    width: fluid-to-laptop(395, 300);
+    margin: 0;
+
+    @include mobile-s {
+      width: 100%;
+    }
+  }
+
+  @include mobile {
+    flex-direction: row;
+    justify-content: space-evenly;
+    column-gap: 15px;
+  }
+
+  @include mobile-s {
+    flex-direction: column;
+  }
+}
+
+.button {
+  margin-top: auto;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-black);
+}
