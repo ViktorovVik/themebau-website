@@ -23,6 +23,24 @@
   &:active {
     cursor: grabbing;
   }
+
+  :global(.swiper-pagination) {
+    width: 150px;
+    margin-bottom: 50px;
+    margin-left: fluid(190, 0);
+    margin-right: auto;
+    color: var(--color-white);
+  }
+
+  :global(.divider) {
+    width: 20px;
+    padding-inline: 15px;
+  }
+
+  :global(.swiper-button-prev)::after,
+  :global(.swiper-button-next)::after {
+    content: none;
+  }
 }
 
 .heroSlider img {
@@ -62,20 +80,4 @@
   z-index: 9;
 }
 
-:global(.swiper-pagination) {
-  width: 150px;
-  margin-bottom: 50px;
-  margin-left: fluid(190, 0);
-  margin-right: auto;
-  color: var(--color-white);
-}
 
-:global(.divider) {
-  width: 20px;
-  padding-inline: 15px;
-}
-
-:global(.swiper-button-prev)::after,
-:global(.swiper-button-next)::after {
-  content: none;
-}
