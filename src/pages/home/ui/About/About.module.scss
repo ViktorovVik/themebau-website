@@ -69,11 +69,11 @@
 .button {
   grid-column: 2;
   justify-self: start;
+  margin-top: fluid(27, 20);
 
   @include tablet {
     grid-column: 1;
     justify-self: center;
-    margin-top: 20px;
     width: 50%;
   }
 
