@@ -6,6 +6,7 @@ import { WorkProcess } from './WorkProcess';
 import { Create } from './Create';
 import { Values } from '@/pages/home/ui/Values';
 import { Feedback } from '@/pages/home/ui/Feedback';
+import { Blog } from '@/pages/home/ui/Blog';
 
 export const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ export const HomePage = () => {
       <Create />
       <Values />
       <Feedback />
+      <Blog />
     </>
   );
 };

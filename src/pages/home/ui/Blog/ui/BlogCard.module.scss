@@ -1,0 +1,42 @@
+@use '@/app/styles/helpers' as *;
+
+.card {
+  position: relative;
+  width: fluid(370, 300);
+  overflow: hidden;
+
+  @include hover {
+    .img {
+      scale: 1.05;
+    }
+  }
+}
+
+.date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 15px;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.img {
+  margin-bottom: fluid(27, 15);
+  transition: scale var(--transition-duration-longer);
+}
+
+.title {
+  font-size: 20px;
+}
+
+.cardLink {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+}
