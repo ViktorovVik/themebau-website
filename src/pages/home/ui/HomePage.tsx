@@ -7,6 +7,7 @@ import { Create } from './Create';
 import { Values } from '@/pages/home/ui/Values';
 import { Feedback } from '@/pages/home/ui/Feedback';
 import { Blog } from '@/pages/home/ui/Blog';
+import { CTA } from '@/pages/home/ui/CTA';
 
 export const HomePage = () => {
   return (
@@ -20,6 +21,7 @@ export const HomePage = () => {
       <Values />
       <Feedback />
       <Blog />
+      <CTA />
     </>
   );
 };
