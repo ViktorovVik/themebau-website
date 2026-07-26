@@ -134,9 +134,22 @@
 }
 
 .send {
+  align-self: stretch;
+  padding: 0 15px;
+  width: auto;
+  height: auto;
+
   @include hover {
     background-color: var(--color-white);
     color: var(--color-dark);
+  }
+
+  &::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: currentColor;
   }
 }
 
