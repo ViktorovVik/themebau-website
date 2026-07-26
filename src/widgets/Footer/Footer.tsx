@@ -4,11 +4,20 @@ import cn from 'clsx';
 import { Logo } from '@/shared/ui';
 import { Button, Socials } from '@/shared/ui';
 import { FOOTER_LINKS } from './config/footer.data';
+import deco from '@/shared/assets/deco/2.svg';
 
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={cn(styles.inner, 'container')}>
+        <img
+          className={styles.deco}
+          src={deco}
+          alt=""
+          width={641}
+          height={641}
+          aria-hidden="true"
+        />
         <div className={styles.leftCol}>
           <Logo className={styles.footerLogo} />
           <p className={styles.text}>

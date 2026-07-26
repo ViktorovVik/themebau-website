@@ -4,6 +4,7 @@
   position: relative;
   background-color: var(--color-dark);
   color: var(--color-white);
+  overflow: clip;
 
   &::before {
     content: '';
@@ -21,6 +22,8 @@
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   padding-block: fluid(120, 30);
 
@@ -28,6 +31,17 @@
     flex-direction: column;
     row-gap: 30px;
   }
+}
+
+.deco {
+  position: absolute;
+  bottom: 80%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(40%, 80%);
+  pointer-events: none;
+  width: fluid(641, 300);
+  height: auto;
 }
 
 .leftCol {
@@ -70,10 +84,6 @@
 }
 
 .rightCol {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  row-gap: fluid(130, 30);
   padding-left: fluid(110, 30);
 
   @include mobile {
@@ -83,6 +93,7 @@
 
 .form {
   width: 100%;
+  margin-bottom: fluid-to-laptop(100, 30);
 }
 
 .label {
@@ -153,6 +164,7 @@
 }
 
 .privacyPolicy {
+  display: block;
+  text-align: right;
   color: var(--color-gray);
-  align-self: flex-end;
 }
