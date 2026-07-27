@@ -1,3 +1,9 @@
+import { HeroPortfolio } from '@/pages/portfolio/ui/HeroPortfolio';
+
 export const PortfolioPage = () => {
-  return <h1>Portfolio</h1>;
+  return (
+    <>
+      <HeroPortfolio />
+    </>
+  );
 };

@@ -1,0 +1,28 @@
+@use '@/app/styles/helpers' as *;
+
+.hero {
+  padding-block: fluid(130, 30);
+  text-align: center;
+}
+
+.inner {
+  position: relative;
+  isolation: isolate;
+}
+
+.deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-30%, -60%);
+  z-index: -1;
+  pointer-events: none;
+  width: fluid(641, 300);
+  height: auto;
+}
+
+.title {
+  margin-bottom: fluid(65, 20);
+  width: fluid(623, 310);
+  margin-inline: auto;
+}
