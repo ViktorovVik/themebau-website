@@ -39,7 +39,7 @@
 .circle {
   @include square(90px);
 
-  background-color: var(--color-white);
+  background-color: var(--color-gray-milk);
   border-radius: 50%;
 }
 
