@@ -11,6 +11,8 @@ export const Header = () => {
 
   const location = useLocation();
 
+  const isLight = location.pathname === '/portfolio';
+
   const toggleBurgerMenu = () => {
     setIsOpen((prev) => !prev);
   };
@@ -49,7 +51,7 @@ export const Header = () => {
   useEffect(() => {}, [isOpen]);
 
   return (
-    <header className={styles.header}>
+    <header className={cn(styles.header, isLight && styles.light)}>
       <div className={cn(styles.headerInner, 'container')}>
         <Logo />
         <div className={cn(styles.overlay, isOpen && styles.open)}>
@@ -74,7 +76,7 @@ export const Header = () => {
           </div>
         </div>
         <BurgerButton
-          className="visible-mobile"
+          className={cn(isLight && styles.lightBurger, 'visible-mobile')}
           isOpen={isOpen}
           toggleBurgerMenu={toggleBurgerMenu}
         />

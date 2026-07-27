@@ -37,6 +37,10 @@
 }
 
 .open {
+  &.burgerButton {
+    color: var(--color-white);
+  }
+
   .line {
     stroke-dasharray: 90 207;
     stroke-dashoffset: -134;
