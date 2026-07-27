@@ -123,3 +123,28 @@
     visibility: visible;
   }
 }
+
+.light {
+  background-color: var(--color-white);
+  color: var(--color-black);
+
+  @include mobile-above {
+    .link {
+      color: var(--color-dark);
+      &::after {
+        background-color: var(--color-dark);
+      }
+
+      @include hover {
+        color: var(--color-dark);
+      }
+    }
+
+    .active {
+      color: var(--color-dark);
+    }
+  }
+  .lightBurger {
+    color: var(--color-dark);
+  }
+}
