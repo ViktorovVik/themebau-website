@@ -1,5 +1,5 @@
 import { HeroPortfolio } from './HeroPortfolio';
-import { Projects } from "./Projects";
+import { Projects } from './Projects';
 
 export const PortfolioPage = () => {
   return (
