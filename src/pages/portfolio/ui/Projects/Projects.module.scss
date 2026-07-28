@@ -1,0 +1,140 @@
+@use '@/app/styles/helpers' as *;
+
+.projects {
+  padding-bottom: fluid(150, 30);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: fluid(90, 30);
+  border-top: 1px solid var(--color-dark);
+}
+
+.categoriesList {
+  @include flex-center;
+
+  padding-top: fluid(30, 15);
+  flex-wrap: wrap;
+  gap: fluid(50, 15);
+}
+
+.categoryButton {
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-gray);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    top: 0.55em;
+    height: 2px;
+    background-color: var(--color-dark);
+    transition: right var(--transition-duration) ease-in;
+  }
+
+  @include hover {
+    color: var(--color-dark);
+
+    &::after {
+      right: 0;
+    }
+  }
+
+  &.active {
+    color: var(--color-black);
+
+    &::after {
+      right: 0;
+    }
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: fluid-to-laptop(30, 15);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 15px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectColumn {
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid(30, 15);
+}
+
+.projectItem {
+  position: relative;
+  cursor: pointer;
+  animation-name: project-animation;
+  animation-fill-mode: both;
+  animation-duration: var(--transition-duration-longer);
+
+  @include hover {
+    .projectTitle {
+      opacity: 1;
+    }
+  }
+
+  @keyframes project-animation {
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.projectTitle {
+  @include flex-center;
+
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  width: fluid(226, 130);
+  white-space: nowrap;
+  padding-block: 8px;
+  transition: opacity var(--transition-duration);
+
+  @include mobile-above {
+    opacity: 0;
+  }
+}
+
+.projectLink {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.button {
+  @include hover {
+    background-color: var(--color-gray);
+    color: var(--color-white);
+  }
+}
