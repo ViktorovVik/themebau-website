@@ -1,0 +1,21 @@
+@use '@/app/styles/helpers' as *;
+
+.cta {
+  padding-bottom: fluid(160, 40);
+}
+
+.inner {
+  @include flex-center;
+
+  flex-direction: column;
+  row-gap: fluid(50, 30);
+  text-align: center;
+}
+
+.title {
+  max-width: 648px;
+}
+
+.titleRow {
+  display: block;
+}
