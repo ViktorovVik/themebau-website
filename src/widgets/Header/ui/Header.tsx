@@ -48,8 +48,6 @@ export const Header = () => {
     };
   }, [isOpen]);
 
-  useEffect(() => {}, [isOpen]);
-
   return (
     <header className={cn(styles.header, isLight && styles.light)}>
       <div className={cn(styles.headerInner, 'container')}>
