@@ -1,17 +1,34 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router';
+import { NavLink, useLocation, useMatches } from 'react-router';
 import cn from 'clsx';
 import styles from './Header.module.scss';
 import { NAV_ITEMS } from '../config/navItems';
 import { Logo, Socials } from '@/shared/ui';
 import { BurgerButton } from './BurgerButton';
 
+type HeaderTheme = 'light' | 'dark';
+type HandleMatch = {
+  theme?: HeaderTheme;
+  transparent?: boolean;
+};
+
+const isHandleMatch = (handle: unknown): handle is HandleMatch => {
+  return handle !== null && typeof handle === 'object';
+};
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const location = useLocation();
 
-  const isLight = location.pathname === '/portfolio';
+  const matches = useMatches();
+
+  const routeHandle = matches.at(-1)?.handle;
+
+  const headerConfig = {
+    theme: 'dark',
+    transparent: false,
+    ...(isHandleMatch(routeHandle) && routeHandle),
+  };
 
   const toggleBurgerMenu = () => {
     setIsOpen((prev) => !prev);
@@ -49,7 +66,13 @@ export const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className={cn(styles.header, isLight && styles.light)}>
+    <header
+      className={cn(
+        styles.header,
+        headerConfig.theme === 'light' && styles.light,
+        headerConfig.transparent && styles.transparent,
+      )}
+    >
       <div className={cn(styles.headerInner, 'container')}>
         <Logo />
         <div className={cn(styles.overlay, isOpen && styles.open)}>
@@ -74,7 +97,10 @@ export const Header = () => {
           </div>
         </div>
         <BurgerButton
-          className={cn(isLight && styles.lightBurger, 'visible-mobile')}
+          className={cn(
+            headerConfig.theme === 'light' && styles.lightBurger,
+            'visible-mobile',
+          )}
           isOpen={isOpen}
           toggleBurgerMenu={toggleBurgerMenu}
         />

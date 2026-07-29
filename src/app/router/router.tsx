@@ -16,10 +16,16 @@ export const router = createBrowserRouter([
       {
         path: 'agency',
         element: <AgencyPage />,
+        handle: {
+          transparent: true,
+        },
       },
       {
         path: 'portfolio',
         element: <PortfolioPage />,
+        handle: {
+          theme: 'light',
+        },
       },
     ],
   },
