@@ -1,34 +1,16 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useLocation, useMatches } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 import cn from 'clsx';
+import { useHeaderConfig } from '../lib/useHeaderConfig';
 import styles from './Header.module.scss';
 import { NAV_ITEMS } from '../config/navItems';
 import { Logo, Socials } from '@/shared/ui';
 import { BurgerButton } from './BurgerButton';
 
-type HeaderTheme = 'light' | 'dark';
-type HandleMatch = {
-  theme?: HeaderTheme;
-  transparent?: boolean;
-};
-
-const isHandleMatch = (handle: unknown): handle is HandleMatch => {
-  return handle !== null && typeof handle === 'object';
-};
-
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const matches = useMatches();
-
-  const routeHandle = matches.at(-1)?.handle;
-
-  const headerConfig = {
-    theme: 'dark',
-    transparent: false,
-    ...(isHandleMatch(routeHandle) && routeHandle),
-  };
+  const headerConfig = useHeaderConfig();
 
   const toggleBurgerMenu = () => {
     setIsOpen((prev) => !prev);
