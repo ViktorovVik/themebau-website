@@ -13,11 +13,11 @@
   animation-fill-mode: both;
   animation-timeline: scroll();
   animation-range: 0 200px;
+}
 
-  @keyframes scrolling-header {
-    to {
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
-    }
+@keyframes scrolling-header {
+  to {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -140,5 +140,21 @@
   }
   .lightBurger {
     color: var(--color-dark);
+  }
+}
+
+.transparent {
+  animation-name: transparent-header;
+  animation-range: 0 500px;
+}
+
+@keyframes transparent-header {
+  from {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+    background-color: transparent;
+  }
+  to {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    background-color: var(--color-dark);
   }
 }
