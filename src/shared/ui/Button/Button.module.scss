@@ -49,6 +49,12 @@
   height: 54px;
   column-gap: fluid-to-laptop(20, 10);
   color: var(--color-dark);
+  font-weight: 500;
+
+  @include hover {
+    background-color: var(--color-gray);
+    color: var(--color-gray-milk);
+  }
 }
 
 .white,

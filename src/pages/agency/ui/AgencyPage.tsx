@@ -1,3 +1,5 @@
+import { HeroAgency } from '@/pages/agency/ui/HeroAgency';
+
 export const AgencyPage = () => {
-  return <h1>Agency</h1>;
+  return <HeroAgency />;
 };
