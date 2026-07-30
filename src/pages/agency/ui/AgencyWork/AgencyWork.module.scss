@@ -1,0 +1,22 @@
+@use '@/app/styles/helpers' as *;
+
+.work {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding-bottom: fluid(160, 40);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid-to-laptop(130, 30);
+  margin-bottom: fluid(120, 30);
+}
+
+.workButton {
+  margin-inline: auto;
+
+  @include mobile-s {
+    width: 100%;
+  }
+}
