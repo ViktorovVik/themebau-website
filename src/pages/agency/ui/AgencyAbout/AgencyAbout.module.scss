@@ -1,0 +1,59 @@
+@use '@/app/styles/helpers' as *;
+
+.about {
+  padding-block: fluid(130, 40);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  justify-items: center;
+  gap: 30px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.colLeft {
+  display: grid;
+  row-gap: 30px;
+  max-width: 268px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.button {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.colRight {
+  display: grid;
+  row-gap: 30px;
+  max-width: 438px;
+}
+
+.bottomText {
+  padding-bottom: fluid(50, 20);
+  border-bottom: 1px solid var(--color-dark);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.item {
+  @include flex-center;
+
+  flex-direction: column;
+}
+
+.item > strong {
+  font-size: fluid(48, 25);
+}
