@@ -1,1 +1,1 @@
-export { AgencyWorkCard } from './AgencyWorkcard';
+export { AgencyWorkCard } from './AgencyWorkCard.tsx';
