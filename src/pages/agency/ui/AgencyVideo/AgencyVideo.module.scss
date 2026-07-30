@@ -1,0 +1,25 @@
+@use '@/app/styles/helpers' as *;
+
+.video {
+  padding-bottom: fluid(100, 40);
+}
+
+.inner {
+  position: relative;
+}
+
+.banner {
+  width: 100%;
+  aspect-ratio: 1170/550;
+
+  @include mobile {
+    aspect-ratio: 4/3;
+  }
+}
+
+.button {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
