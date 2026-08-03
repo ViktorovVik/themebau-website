@@ -1,0 +1,20 @@
+@use '@/app/styles/helpers' as *;
+
+.modal {
+  position: relative;
+  background-color: var(--color-white);
+  width: fluid(600, 300);
+  margin-inline: auto;
+  border: none;
+  padding: fluid(30, 15);
+
+  &::backdrop {
+    backdrop-filter: blur(4px);
+    background-color: color-mix(in srgb, var(--color-gray-pale) 50%, transparent);
+  }
+}
+
+.modalWrapper {
+  padding: fluid(40, 15);
+  border: 1px solid var(--color-dark);
+}
