@@ -1,7 +1,13 @@
-import { createPortal } from "react-dom";
-import { X } from "lucide-react";
+import { createPortal } from 'react-dom';
+import { X } from 'lucide-react';
 import styles from './Modal.module.scss';
-import {type ReactNode, useEffect, useRef, type MouseEvent, useId} from "react";
+import {
+  type ReactNode,
+  useEffect,
+  useRef,
+  type MouseEvent,
+  useId,
+} from 'react';
 
 interface ModalProps {
   closeModal: () => void;
@@ -10,19 +16,16 @@ interface ModalProps {
   title: string;
 }
 
-
-
 export const Modal = ({ closeModal, isOpen, children, title }: ModalProps) => {
-
   const titleID = useId();
 
   const refModal = useRef<HTMLDialogElement>(null);
 
-  const handleBackdropClick= (event: MouseEvent<HTMLDialogElement>) => {
+  const handleBackdropClick = (event: MouseEvent<HTMLDialogElement>) => {
     if (event.target === event.currentTarget) {
       closeModal();
     }
-  }
+  };
 
   useEffect(() => {
     const dialog = refModal.current;
@@ -43,30 +46,30 @@ export const Modal = ({ closeModal, isOpen, children, title }: ModalProps) => {
 
     return () => {
       document.documentElement.classList.remove('is-lock');
-    }
+    };
   }, [isOpen]);
 
   return createPortal(
-      <dialog
-        onClick={handleBackdropClick}
-        ref={refModal}
-        className={styles.modal}
-        onClose={closeModal}
-        aria-labelledby={titleID}
+    <dialog
+      onClick={handleBackdropClick}
+      ref={refModal}
+      className={styles.modal}
+      onClose={closeModal}
+      aria-labelledby={titleID}
+    >
+      <h2 className="visually-hidden" id={titleID}>
+        {title}
+      </h2>
+      <button
+        className={styles.closeButton}
+        type="button"
+        onClick={closeModal}
+        aria-label="Close Modal"
       >
-        <h2 className='visually-hidden' id={titleID}>{title}</h2>
-        <button
-          className={styles.closeButton}
-          type='button'
-          onClick={closeModal}
-          aria-label='Close Modal'
-        >
-          <X  />
-        </button>
-        <div className={styles.modalWrapper}>
-          {children}
-        </div>
-      </dialog>,
-    document.body
-  )
-}
+        <X />
+      </button>
+      <div className={styles.modalWrapper}>{children}</div>
+    </dialog>,
+    document.body,
+  );
+};
