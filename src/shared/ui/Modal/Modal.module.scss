@@ -1,7 +1,6 @@
 @use '@/app/styles/helpers' as *;
 
 .modal {
-  position: relative;
   background-color: var(--color-white);
   width: fluid(600, 300);
   margin-inline: auto;
@@ -12,6 +11,15 @@
     backdrop-filter: blur(4px);
     background-color: color-mix(in srgb, var(--color-gray-pale) 50%, transparent);
   }
+}
+
+.closeButton {
+  @include focus-visible;
+
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  cursor: pointer;
 }
 
 .modalWrapper {
