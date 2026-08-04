@@ -6,21 +6,51 @@
   margin-inline: auto;
   border: none;
   padding: 30px;
+  opacity: 1;
+  transition:
+    opacity var(--transition-duration-longer),
+    display var(--transition-duration-longer) allow-discrete,
+    overlay var(--transition-duration-longer) allow-discrete,
+    transform var(--transition-duration-longer);
+  transform: translateY(0);
 
   &::backdrop {
     backdrop-filter: blur(4px);
+    opacity: 1;
     background-color: color-mix(
       in srgb,
       var(--color-gray-pale) 50%,
       transparent
     );
+    transition:
+      opacity var(--transition-duration-longer),
+      display var(--transition-duration-longer) allow-discrete,
+      overlay var(--transition-duration-longer) allow-discrete;
+
+    @starting-style {
+      opacity: 0;
+    }
   }
+
+  &:not([open]) {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.modal:not([open])::backdrop {
+  opacity: 0;
 }
 
 .closeButton {
   position: absolute;
   top: 20px;
-  right: 15px;
+  right: 18px;
   cursor: pointer;
   transform: translate(50%, -50%);
 
