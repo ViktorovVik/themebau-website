@@ -1,11 +1,15 @@
 import cn from 'clsx';
 import styles from './HeroPortfolio.module.scss';
 import deco from '@/shared/assets/deco/1.svg';
-import { Button } from '@/shared/ui';
+import { Button, Modal } from '@/shared/ui';
+import { ContactForm } from '@/features/contact-form/ui/ContactForm';
+import { useModal } from '@/shared/lib/useModal';
 
 const TITLE = 'portfolio-hero-section-title';
 
 export const HeroPortfolio = () => {
+  const { isOpen, openModal, closeModal } = useModal();
+
   return (
     <section className={styles.hero} aria-labelledby={TITLE}>
       <div className={cn(styles.inner, 'container')}>
@@ -20,7 +24,16 @@ export const HeroPortfolio = () => {
         <h1 id={TITLE} className={cn(styles.title, 'h1')}>
           An award-winning digital studio ✌️
         </h1>
-        <Button type="button">let’s work</Button>
+        <Button onClick={openModal} type="button">
+          let’s work
+        </Button>
+        <Modal
+          closeModal={closeModal}
+          isOpen={isOpen}
+          title="Let`s work together"
+        >
+          <ContactForm />
+        </Modal>
       </div>
     </section>
   );
