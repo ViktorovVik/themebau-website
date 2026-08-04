@@ -1,22 +1,14 @@
-import { useState } from 'react';
 import styles from './PortfolioCTA.module.scss';
 import cn from 'clsx';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui';
 import { ContactForm } from '@/features/contact-form/ui/ContactForm';
+import { useModal } from '@/shared/lib/useModal';
 
 const TITLE = 'cta-title';
 
 export const PortfolioCTA = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
     <section className={styles.cta} aria-labelledby={TITLE}>
