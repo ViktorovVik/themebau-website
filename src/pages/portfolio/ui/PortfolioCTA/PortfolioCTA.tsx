@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import styles from './PortfolioCTA.module.scss';
 import cn from 'clsx';
@@ -19,7 +18,6 @@ export const PortfolioCTA = () => {
     setIsOpen(false);
   };
 
-
   return (
     <section className={styles.cta} aria-labelledby={TITLE}>
       <div className={cn(styles.inner, 'container')}>
@@ -37,7 +35,7 @@ export const PortfolioCTA = () => {
       <Modal
         closeModal={closeModal}
         isOpen={isOpen}
-        title='Let`s work together'
+        title="Let`s work together"
       >
         <ContactForm />
       </Modal>
