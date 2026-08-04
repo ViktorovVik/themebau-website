@@ -5,7 +5,7 @@
   width: fluid(600, 300);
   margin-inline: auto;
   border: none;
-  padding: fluid(30, 15);
+  padding: 30px;
 
   &::backdrop {
     backdrop-filter: blur(4px);
@@ -17,9 +17,10 @@
   @include focus-visible;
 
   position: absolute;
-  top: 2%;
-  right: 1%;
+  top: 20px;
+  right: 15px;
   cursor: pointer;
+  transform: translate(50%, -50%);
 }
 
 .modalWrapper {
