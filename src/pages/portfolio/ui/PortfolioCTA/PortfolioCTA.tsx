@@ -35,7 +35,7 @@ export const PortfolioCTA = () => {
       <Modal
         closeModal={closeModal}
         isOpen={isOpen}
-        title={'Let&apos;s work together'}
+        title="Let`s work together"
       >
         <ContactForm />
       </Modal>
