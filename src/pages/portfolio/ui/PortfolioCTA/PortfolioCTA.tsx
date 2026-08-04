@@ -30,8 +30,8 @@ export const PortfolioCTA = () => {
         </h2>
         <Button onClick={openModal} type="button">let&apos;s work</Button>
       </div>
-      <Modal closeModal={closeModal} isOpen={isOpen}>
-        <p>sdsdsd</p>
+      <Modal closeModal={closeModal} isOpen={isOpen} title={'Let&apos;s work together'}>
+        <p>asdasda</p>
       </Modal>
     </section>
   );
