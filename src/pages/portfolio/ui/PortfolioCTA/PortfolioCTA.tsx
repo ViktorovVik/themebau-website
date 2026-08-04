@@ -1,22 +1,24 @@
-import { useState } from "react";
+
+import { useState } from 'react';
 import styles from './PortfolioCTA.module.scss';
 import cn from 'clsx';
 import { Button } from '@/shared/ui/Button';
-import { Modal } from "@/shared/ui";
+import { Modal } from '@/shared/ui';
+import { ContactForm } from '@/features/contact-form/ui/ContactForm';
 
 const TITLE = 'cta-title';
 
 export const PortfolioCTA = () => {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
 
   return (
     <section className={styles.cta} aria-labelledby={TITLE}>
@@ -28,10 +30,16 @@ export const PortfolioCTA = () => {
             <span aria-hidden={true}>👋</span>
           </span>
         </h2>
-        <Button onClick={openModal} type="button">let&apos;s work</Button>
+        <Button onClick={openModal} type="button">
+          let&apos;s work
+        </Button>
       </div>
-      <Modal closeModal={closeModal} isOpen={isOpen} title={'Let&apos;s work together'}>
-        <p>asdasda</p>
+      <Modal
+        closeModal={closeModal}
+        isOpen={isOpen}
+        title='Let`s work together'
+      >
+        <ContactForm />
       </Modal>
     </section>
   );

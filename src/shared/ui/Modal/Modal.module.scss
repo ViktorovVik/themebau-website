@@ -5,21 +5,27 @@
   width: fluid(600, 300);
   margin-inline: auto;
   border: none;
-  padding: fluid(30, 15);
+  padding: 30px;
 
   &::backdrop {
     backdrop-filter: blur(4px);
-    background-color: color-mix(in srgb, var(--color-gray-pale) 50%, transparent);
-  }
+    background-color: color-mix(
+      in srgb,
+      var(--color-gray-pale) 50%,
+      transparent
+    );
 }
 
 .closeButton {
-  @include focus-visible;
-
   position: absolute;
-  top: 2%;
-  right: 1%;
+  top: 20px;
+  right: 15px;
   cursor: pointer;
+  transform: translate(50%, -50%);
+
+  &:focus-visible {
+    @include focus-visible(var(--color-dark));
+  }
 }
 
 .modalWrapper {

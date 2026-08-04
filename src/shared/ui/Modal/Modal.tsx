@@ -1,3 +1,4 @@
+
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import styles from './Modal.module.scss';
@@ -11,18 +12,17 @@ interface ModalProps {
 }
 
 
-
 export const Modal = ({ closeModal, isOpen, children, title }: ModalProps) => {
 
   const titleID = useId();
 
   const refModal = useRef<HTMLDialogElement>(null);
 
-  const handleBackdropClick= (event: MouseEvent<HTMLDialogElement>) => {
+  const handleBackdropClick = (event: MouseEvent<HTMLDialogElement>) => {
     if (event.target === event.currentTarget) {
       closeModal();
     }
-  }
+  };
 
   useEffect(() => {
     const dialog = refModal.current;
@@ -43,8 +43,9 @@ export const Modal = ({ closeModal, isOpen, children, title }: ModalProps) => {
 
     return () => {
       document.documentElement.classList.remove('is-lock');
-    }
+    };
   }, [isOpen]);
+
 
   return createPortal(
       <dialog
