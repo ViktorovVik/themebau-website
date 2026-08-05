@@ -4,9 +4,11 @@ import {
   type ChangeEvent,
   type FormEvent,
   useEffect,
+  type CSSProperties
 } from 'react';
 import styles from './ContactForm.module.scss';
 import { Button } from '@/shared/ui';
+import cn from "clsx";
 
 type FormState = 'idle' | 'sending' | 'success' | 'error';
 
@@ -54,16 +56,20 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
     }, 2000);
   };
 
+
+  const arrayStr = 'Message sent!'.split('');
+  const letters = arrayStr.map((letter, index) => {
+   return <span style={{ '--index': index} as CSSProperties } key={index}>{letter}</span>
+  })
+
   return (
     <>
       <p aria-live="polite" className="visually-hidden">
         {status === 'success' && 'Message sent!'}
         {status === 'error' && 'Something went wrong. Please try again!'}
       </p>
-      {status === 'success' ? (
-        <p className={styles.success}>Message sent</p>
-      ) : (
-        <form className={styles.formContact} onSubmit={handleSubmit}>
+        <p className={cn(styles.success, status === 'success' && styles.show)}>{letters}</p>
+        <form className={cn(styles.formContact, status === 'success' && styles.hidden)} onSubmit={handleSubmit}>
           <div className={styles.wrapper}>
             <label className={styles.label} htmlFor={`${uniqId}--name`}>
               Your Name
@@ -118,7 +124,6 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
             {status === 'sending' ? 'sending...' : 'contact us'}
           </Button>
         </form>
-      )}
     </>
   );
 };
