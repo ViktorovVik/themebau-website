@@ -35,7 +35,7 @@ export const HeroAgency = () => {
             isOpen={isOpen}
             title="Let`s work together"
           >
-            <ContactForm />
+            <ContactForm isOpen={isOpen} />
           </Modal>
         </div>
       </div>
