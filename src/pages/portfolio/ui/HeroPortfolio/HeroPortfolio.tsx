@@ -32,7 +32,7 @@ export const HeroPortfolio = () => {
           isOpen={isOpen}
           title="Let`s work together"
         >
-          <ContactForm />
+          <ContactForm isOpen={isOpen} />
         </Modal>
       </div>
     </section>

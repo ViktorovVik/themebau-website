@@ -29,7 +29,7 @@ export const PortfolioCTA = () => {
         isOpen={isOpen}
         title="Let`s work together"
       >
-        <ContactForm />
+        <ContactForm isOpen={isOpen} />
       </Modal>
     </section>
   );
