@@ -2,7 +2,7 @@
 
 .modal {
   background-color: var(--color-white);
-  width: min(900px, 90vw);
+  width: fluid(600, 300);
   margin-inline: auto;
   border: none;
   padding: 30px;
