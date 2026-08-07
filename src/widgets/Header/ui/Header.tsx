@@ -6,11 +6,13 @@ import styles from './Header.module.scss';
 import { NAV_ITEMS } from '../config/navItems';
 import { Logo, Socials } from '@/shared/ui';
 import { BurgerButton } from './BurgerButton';
+import { useScrollLock } from "@/shared/lib";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const headerConfig = useHeaderConfig();
+  useScrollLock(isOpen);
 
   const toggleBurgerMenu = () => {
     setIsOpen((prev) => !prev);
@@ -34,18 +36,6 @@ export const Header = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.documentElement.classList.add('is-lock');
-    } else {
-      document.documentElement.classList.remove('is-lock');
-    }
-
-    return () => {
-      document.documentElement.classList.remove('is-lock');
-    };
-  }, [isOpen]);
 
   return (
     <header

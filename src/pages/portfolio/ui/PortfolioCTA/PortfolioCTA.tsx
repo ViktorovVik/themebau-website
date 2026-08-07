@@ -3,7 +3,7 @@ import cn from 'clsx';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui';
 import { ContactForm } from '@/features/contact-form/ui/ContactForm';
-import { useModal } from '@/shared/lib/useModal';
+import { useModal } from '@/shared/lib';
 
 const TITLE = 'cta-title';
 

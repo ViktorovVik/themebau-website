@@ -2,7 +2,7 @@ import cn from 'clsx';
 import styles from './HeroAgency.module.scss';
 import { Button, Modal } from '@/shared/ui';
 import { ContactForm } from '@/features/contact-form/ui/ContactForm';
-import { useModal } from '@/shared/lib/useModal';
+import { useModal } from '@/shared/lib';
 
 const TITLE = 'agency-hero-section-title';
 

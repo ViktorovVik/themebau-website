@@ -9,6 +9,7 @@ import {
   useId,
 } from 'react';
 import cn from "clsx";
+import { useScrollLock } from "@/shared/lib";
 
 interface ModalProps {
   className?: string;
@@ -20,6 +21,7 @@ interface ModalProps {
 
 export const Modal = ({ closeModal, isOpen, children, title, className }: ModalProps) => {
   const titleID = useId();
+  useScrollLock(isOpen);
 
   const refModal = useRef<HTMLDialogElement>(null);
 
@@ -41,15 +43,6 @@ export const Modal = ({ closeModal, isOpen, children, title, className }: ModalP
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.documentElement.classList.add('is-lock');
-    }
-
-    return () => {
-      document.documentElement.classList.remove('is-lock');
-    };
-  }, [isOpen]);
 
   return createPortal(
     <dialog
