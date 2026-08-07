@@ -8,8 +8,8 @@ import {
   type MouseEvent,
   useId,
 } from 'react';
-import cn from "clsx";
-import { useScrollLock } from "@/shared/lib";
+import cn from 'clsx';
+import { useScrollLock } from '@/shared/lib';
 
 interface ModalProps {
   className?: string;
@@ -19,7 +19,13 @@ interface ModalProps {
   title: string;
 }
 
-export const Modal = ({ closeModal, isOpen, children, title, className }: ModalProps) => {
+export const Modal = ({
+  closeModal,
+  isOpen,
+  children,
+  title,
+  className,
+}: ModalProps) => {
   const titleID = useId();
   useScrollLock(isOpen);
 
@@ -42,7 +48,6 @@ export const Modal = ({ closeModal, isOpen, children, title, className }: ModalP
       dialog.close();
     }
   }, [isOpen]);
-
 
   return createPortal(
     <dialog

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router';
 import cn from 'clsx';
 import { useHeaderConfig } from '../lib/useHeaderConfig';
@@ -6,13 +6,15 @@ import styles from './Header.module.scss';
 import { NAV_ITEMS } from '../config/navItems';
 import { Logo, Socials } from '@/shared/ui';
 import { BurgerButton } from './BurgerButton';
-import { useScrollLock } from "@/shared/lib";
+import { useScrollLock } from '@/shared/lib';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const headerConfig = useHeaderConfig();
   useScrollLock(isOpen);
+  const refBurger = useRef<HTMLButtonElement>(null);
+  const firstOpenMenu = useRef(false);
 
   const toggleBurgerMenu = () => {
     setIsOpen((prev) => !prev);
@@ -36,6 +38,20 @@ export const Header = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const button = refBurger.current;
+
+    if (!button) return;
+
+    if (!isOpen) {
+      if (firstOpenMenu.current) {
+        button.focus();
+      }
+    } else {
+      firstOpenMenu.current = true;
+    }
+  }, [isOpen]);
 
   return (
     <header
@@ -69,6 +85,7 @@ export const Header = () => {
           </div>
         </div>
         <BurgerButton
+          ref={refBurger}
           className={cn(
             headerConfig.theme === 'light' && styles.lightBurger,
             'visible-mobile',
