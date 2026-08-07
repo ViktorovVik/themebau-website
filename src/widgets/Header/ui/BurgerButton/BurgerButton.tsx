@@ -1,8 +1,8 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithRef } from 'react';
 import cn from 'clsx';
 import styles from './BurgerButton.module.scss';
 
-interface BurgerButtonProps extends ComponentPropsWithoutRef<'button'> {
+interface BurgerButtonProps extends ComponentPropsWithRef<'button'> {
   className?: string;
   isOpen: boolean;
   toggleBurgerMenu: () => void;
