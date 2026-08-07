@@ -8,15 +8,17 @@ import {
   type MouseEvent,
   useId,
 } from 'react';
+import cn from "clsx";
 
 interface ModalProps {
+  className?: string;
   closeModal: () => void;
   isOpen: boolean;
   children: ReactNode;
   title: string;
 }
 
-export const Modal = ({ closeModal, isOpen, children, title }: ModalProps) => {
+export const Modal = ({ closeModal, isOpen, children, title, className }: ModalProps) => {
   const titleID = useId();
 
   const refModal = useRef<HTMLDialogElement>(null);
@@ -53,7 +55,7 @@ export const Modal = ({ closeModal, isOpen, children, title }: ModalProps) => {
     <dialog
       onClick={handleBackdropClick}
       ref={refModal}
-      className={styles.modal}
+      className={cn(styles.modal, className)}
       onClose={closeModal}
       aria-labelledby={titleID}
     >
