@@ -2,7 +2,7 @@ import styles from './PortfolioCTA.module.scss';
 import cn from 'clsx';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui';
-import { ContactForm } from '@/features/contact-form/ui/ContactForm';
+import { ContactForm } from '@/features/contact-form';
 import { useModal } from '@/shared/lib';
 
 const TITLE = 'cta-title';

@@ -2,7 +2,7 @@ import cn from 'clsx';
 import styles from './HeroPortfolio.module.scss';
 import deco from '@/shared/assets/deco/1.svg';
 import { Button, Modal } from '@/shared/ui';
-import { ContactForm } from '@/features/contact-form/ui/ContactForm';
+import { ContactForm } from '@/features/contact-form';
 import { useModal } from '@/shared/lib';
 
 const TITLE = 'portfolio-hero-section-title';
