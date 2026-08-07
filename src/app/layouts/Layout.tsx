@@ -5,12 +5,12 @@ import { Footer } from '@/widgets/Footer';
 
 export const Layout = () => {
   return (
-      <ReactLenis root>
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </ReactLenis>
+    <ReactLenis root>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </ReactLenis>
   );
 };

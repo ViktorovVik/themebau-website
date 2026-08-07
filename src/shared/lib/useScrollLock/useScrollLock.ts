@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import { useLenis } from "lenis/react";
+import { useEffect } from 'react';
+import { useLenis } from 'lenis/react';
 
 export const useScrollLock = (isLock: boolean) => {
-
   const lenisHook = useLenis();
 
   useEffect(() => {
@@ -17,8 +16,6 @@ export const useScrollLock = (isLock: boolean) => {
 
     return () => {
       document.documentElement.classList.remove('is-lock');
-    }
-
-
+    };
   }, [lenisHook, isLock]);
-}
+};
