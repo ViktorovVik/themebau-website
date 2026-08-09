@@ -138,3 +138,44 @@
     color: var(--color-white);
   }
 }
+
+.statusText {
+  grid-column: 1 / -1;
+  place-self: center;
+}
+
+.dots {
+
+}
+
+.dot {
+  opacity: 0;
+  animation-name: dots;
+  animation-duration: var(--transition-duration-longer);
+  animation-iteration-count: infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.13s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.26s;
+}
+
+@keyframes dots {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

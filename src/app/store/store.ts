@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { darkModeReducer } from '@/features/dark-mode';
+import { projectsApi } from "@/shared/api/createApi";
 
 export const store = configureStore({
   reducer: {
-    darkMode: darkModeReducer,
+    [projectsApi.reducerPath]: projectsApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(projectsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
