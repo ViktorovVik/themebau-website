@@ -5,13 +5,12 @@ import { useEffect, useState } from 'react';
 import { CATEGORIES } from './config/projects.data';
 import type { Filter } from '@/shared/api/types';
 import { Button } from '@/shared/ui';
-import { useGetProjectsQuery } from "@/shared/api/createApi";
+import { useGetProjectsQuery } from '@/shared/api/createApi';
 
 const TITLE = 'projects-section-title';
 
 export const Projects = () => {
-
-  const { data = [], error, isLoading } = useGetProjectsQuery()
+  const { data = [], error, isLoading } = useGetProjectsQuery();
 
   const calcColumns = () => {
     const size = window.innerWidth;
@@ -66,42 +65,48 @@ export const Projects = () => {
   let content;
 
   if (isLoading) {
-    content = <span className={styles.statusText}>
-      <span>Loading</span>
-      <span className={styles.dots} aria-hidden>
-        <span className={styles.dot}>.</span>
-        <span className={styles.dot}>.</span>
-        <span className={styles.dot}>.</span>
+    content = (
+      <span className={styles.statusText}>
+        <span>Loading</span>
+        <span className={styles.dots} aria-hidden>
+          <span className={styles.dot}>.</span>
+          <span className={styles.dot}>.</span>
+          <span className={styles.dot}>.</span>
+        </span>
       </span>
-    </span>
+    );
   } else if (error) {
-    content = <span className={styles.statusText}>Couldn&apos;t fetch the projects. Please, try again later!</span>
+    content = (
+      <span className={styles.statusText}>
+        Couldn&apos;t fetch the projects. Please, try again later!
+      </span>
+    );
   } else {
     content = columnsArray.map((column, columnIndex) => (
-        <ul key={columnIndex} className={styles.projectColumn}>
-          {column.map(({ id, imgSrc, to, title }) => (
-            <li
-              key={`${id} ${activeCategory}`}
-              className={cn(styles.projectItem)}
-            >
-              <figure className={styles.projectCard}>
-                <img
-                  className={styles.projectImg}
-                  src={imgSrc}
-                  alt=""
-                  loading="lazy"
-                />
-                <figcaption className={styles.projectTitle}>
-                  <Link to={to} className={styles.projectLink}>
-                    {title}
-                  </Link>
-                </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
-      ))
-    }
+      <ul key={columnIndex} className={styles.projectColumn}>
+        {column.map(({ id, imgSrc, to, title }) => (
+          <li
+            key={`${id} ${activeCategory}`}
+            className={cn(styles.projectItem)}
+          >
+            <figure className={styles.projectCard}>
+              <img
+                className={styles.projectImg}
+                src={imgSrc}
+                alt=""
+                loading="lazy"
+              />
+              <figcaption className={styles.projectTitle}>
+                <Link to={to} className={styles.projectLink}>
+                  {title}
+                </Link>
+              </figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    ));
+  }
 
   return (
     <section aria-labelledby={TITLE} className={styles.projects}>
@@ -128,7 +133,7 @@ export const Projects = () => {
             </li>
           ))}
         </ul>
-        <div aria-alive="polite" className={styles.projectGrid}>
+        <div aria-live="polite" className={styles.projectGrid}>
           {content}
         </div>
         {limitedProjects.length < visibleProjects.length && (
