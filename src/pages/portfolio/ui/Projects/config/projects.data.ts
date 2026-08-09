@@ -1,4 +1,4 @@
-import type { Filter } from "@/shared/api/types";
+import type { Filter } from '@/shared/api/types';
 
 interface CategoryData {
   id: string;
@@ -33,4 +33,3 @@ export const CATEGORIES: CategoryData[] = [
     filterValue: 'marketing',
   },
 ];
-
