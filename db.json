@@ -1,0 +1,109 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "imgSrc": "/img/projects/image-1.webp",
+      "category": "marketing",
+      "to": "/agency",
+      "title": "Good Marketing"
+    },
+    {
+      "id": "2",
+      "imgSrc": "/img/projects/image-2.webp",
+      "category": "photography",
+      "to": "/agency",
+      "title": "Good Photography"
+    },
+    {
+      "id": "3",
+      "imgSrc": "/img/projects/image-3.webp",
+      "category": "marketing",
+      "to": "/agency",
+      "title": "Good Marketing"
+    },
+    {
+      "id": "4",
+      "imgSrc": "/img/projects/image-4.webp",
+      "category": "design",
+      "to": "/agency",
+      "title": "Creative Design"
+    },
+    {
+      "id": "5",
+      "imgSrc": "/img/projects/image-5.webp",
+      "category": "branding",
+      "to": "/agency",
+      "title": "Creative Branding"
+    },
+    {
+      "id": "6",
+      "imgSrc": "/img/projects/image-6.webp",
+      "category": "branding",
+      "to": "/agency",
+      "title": "Creative Branding"
+    },
+    {
+      "id": "7",
+      "imgSrc": "/img/projects/image-7.webp",
+      "category": "design",
+      "to": "/agency",
+      "title": "Good Design"
+    },
+    {
+      "id": "8",
+      "imgSrc": "/img/projects/image-9.webp",
+      "category": "photography",
+      "to": "/agency",
+      "title": "Good Photography"
+    },
+    {
+      "id": "9",
+      "imgSrc": "/img/projects/image-8.webp",
+      "category": "marketing",
+      "to": "/agency",
+      "title": "Good Marketing"
+    },
+    {
+      "id": "10",
+      "imgSrc": "/img/projects/image-1.webp",
+      "category": "marketing",
+      "to": "/agency",
+      "title": "Good Marketing"
+    },
+    {
+      "id": "11",
+      "imgSrc": "/img/projects/image-2.webp",
+      "category": "photography",
+      "to": "/agency",
+      "title": "Good Photography"
+    },
+    {
+      "id": "12",
+      "imgSrc": "/img/projects/image-3.webp",
+      "category": "marketing",
+      "to": "/agency",
+      "title": "Good Marketing"
+    },
+    {
+      "id": "13",
+      "imgSrc": "/img/projects/image-4.webp",
+      "category": "design",
+      "to": "/agency",
+      "title": "Creative Design"
+    },
+    {
+      "id": "14",
+      "imgSrc": "/img/projects/image-5.webp",
+      "category": "branding",
+      "to": "/agency",
+      "title": "Creative Branding"
+    },
+    {
+      "id": "15",
+      "imgSrc": "/img/projects/image-6.webp",
+      "category": "branding",
+      "to": "/agency",
+      "title": "Creative Branding"
+    }
+  ]
+}
