@@ -8,3 +8,10 @@ export interface ProjectsData {
   to: string;
   title: string;
 }
+
+export type ContactFormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+

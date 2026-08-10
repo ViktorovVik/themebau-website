@@ -105,5 +105,32 @@
       "to": "/agency",
       "title": "Creative Branding"
     }
-  ]
+  ],
+  "messages": [
+    {
+      "name": "Viktor Viktorov",
+      "email": "samaeldeliankur@gmail.com",
+      "message": "asdasdadad",
+      "id": "oMWjHU6EBUI"
+    },
+    {
+      "name": "Viktor Viktorov",
+      "email": "samaeldeliankur@gmail.com",
+      "message": "фывфыв",
+      "id": "TLuU7mfNjG4"
+    },
+    {
+      "name": "Viktor Viktorov",
+      "email": "samaeldeliankur@gmail.com",
+      "message": "фывфыв",
+      "id": "ri-_98X4jOA"
+    },
+    {
+      "name": "Viktor Viktorov",
+      "email": "samaeldeliankur@gmail.com",
+      "message": "фывфыв",
+      "id": "VR1_BJs8buY"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

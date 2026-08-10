@@ -2,22 +2,17 @@ import {
   useState,
   useId,
   type ChangeEvent,
-  type FormEvent,
+  type SubmitEvent,
   useEffect,
   type CSSProperties,
 } from 'react';
 import { X } from 'lucide-react';
 import styles from './ContactForm.module.scss';
 import { Button } from '@/shared/ui';
+import type { ContactFormData } from '@/shared/api/types';
 import cn from 'clsx';
+import { usePostMessageMutation } from "@/shared/api/createApi";
 
-type FormState = 'idle' | 'sending' | 'success' | 'error';
-
-type ContactFormData = {
-  name: string;
-  email: string;
-  message: string;
-};
 
 interface ContactFormProps {
   isOpen: boolean;
@@ -32,11 +27,11 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
     message: '',
   });
 
-  const [status, setStatus] = useState<FormState>('idle');
+  const [triggerFn, { isLoading, isError, isSuccess, reset }] = usePostMessageMutation();
 
   useEffect(() => {
     if (isOpen) {
-      setStatus('idle');
+      reset();
       setFormData({ name: '', email: '', message: '' });
     }
   }, [isOpen]);
@@ -52,19 +47,9 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
     setFormData((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus('sending');
-
-    setTimeout(() => {
-      const random = Math.random();
-
-      if (random > 0.3) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
-    }, 2000);
+    triggerFn(formData);
   };
 
   const arrayStr = 'Message sent!'.split('');
@@ -79,16 +64,16 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
   return (
     <>
       <p aria-live="polite" className="visually-hidden">
-        {status === 'success' && 'Message sent!'}
-        {status === 'error' && 'Something went wrong. Please try again!'}
+        {isSuccess && 'Message sent!'}
+        {isError && 'Something went wrong. Please try again!'}
       </p>
-      <p className={cn(styles.success, status === 'success' && styles.show)}>
+      <p className={cn(styles.success, isSuccess && styles.show)}>
         {letters}
       </p>
       <form
         className={cn(
           styles.formContact,
-          status === 'success' && styles.hidden,
+          isSuccess && styles.hidden,
         )}
         onSubmit={handleSubmit}
       >
@@ -167,13 +152,13 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
             </button>
           )}
         </div>
-        {status === 'error' && (
+        {isError && (
           <p className={styles.error}>
             Something went wrong. Please try again.
           </p>
         )}
-        <Button disabled={status === 'sending'} type="submit">
-          {status === 'sending' ? 'sending...' : 'contact us'}
+        <Button disabled={isLoading} type="submit">
+          {isLoading ? 'sending...' : 'contact us'}
         </Button>
       </form>
     </>
