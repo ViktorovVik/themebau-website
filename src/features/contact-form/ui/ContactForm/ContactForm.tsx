@@ -11,8 +11,7 @@ import styles from './ContactForm.module.scss';
 import { Button } from '@/shared/ui';
 import type { ContactFormData } from '@/shared/api/types';
 import cn from 'clsx';
-import { usePostMessageMutation } from "@/shared/api/createApi";
-
+import { usePostMessageMutation } from '@/shared/api/createApi';
 
 interface ContactFormProps {
   isOpen: boolean;
@@ -27,7 +26,8 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
     message: '',
   });
 
-  const [triggerFn, { isLoading, isError, isSuccess, reset }] = usePostMessageMutation();
+  const [triggerFn, { isLoading, isError, isSuccess, reset }] =
+    usePostMessageMutation();
 
   useEffect(() => {
     if (isOpen) {
@@ -67,14 +67,9 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
         {isSuccess && 'Message sent!'}
         {isError && 'Something went wrong. Please try again!'}
       </p>
-      <p className={cn(styles.success, isSuccess && styles.show)}>
-        {letters}
-      </p>
+      <p className={cn(styles.success, isSuccess && styles.show)}>{letters}</p>
       <form
-        className={cn(
-          styles.formContact,
-          isSuccess && styles.hidden,
-        )}
+        className={cn(styles.formContact, isSuccess && styles.hidden)}
         onSubmit={handleSubmit}
       >
         <div className={styles.wrapper}>
