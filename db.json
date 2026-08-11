@@ -130,7 +130,14 @@
       "email": "samaeldeliankur@gmail.com",
       "message": "фывфыв",
       "id": "VR1_BJs8buY"
+    },
+    {
+      "name": "Viktor Viktorov",
+      "email": "samaeldeliankur@gmail.com",
+      "message": "фывфыв",
+      "id": "kTGuCaWtD00"
     }
   ],
+  "posts": [{}],
   "$schema": "./node_modules/json-server/schema.json"
 }
