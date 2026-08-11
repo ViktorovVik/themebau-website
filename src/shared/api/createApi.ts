@@ -12,9 +12,9 @@ export const projectsApi = createApi({
       query: (formData) => ({
         url: 'messages/',
         method: 'POST',
-        body: formData
-      })
-    })
+        body: formData,
+      }),
+    }),
   }),
 });
 
