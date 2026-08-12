@@ -14,3 +14,11 @@ export type ContactFormData = {
   email: string;
   message: string;
 };
+
+export interface BlogData {
+  id: string;
+  date: string;
+  imgBg: string;
+  title: string;
+  to: string;
+}
