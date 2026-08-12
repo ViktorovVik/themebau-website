@@ -138,6 +138,28 @@
       "id": "kTGuCaWtD00"
     }
   ],
-  "posts": [{}],
+  "posts": [
+    {
+      "id": "1",
+      "date": "2020-05-12",
+      "imgBg": "/img/blog/image-1.webp",
+      "title": "Office explained in fewer than 100+ Characters",
+      "to": "/agency"
+    },
+    {
+      "id": "2",
+      "date": "2020-05-08",
+      "imgBg": "/img/blog/image-2.webp",
+      "title": "This week's top Stories about Development",
+      "to": "/agency"
+    },
+    {
+      "id": "3",
+      "date": "2020-05-05",
+      "imgBg": "/img/blog/image-3.webp",
+      "title": "Facts about Business that you never knew",
+      "to": "/agency"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
