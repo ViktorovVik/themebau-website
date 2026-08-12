@@ -1,54 +1,18 @@
 import styles from './Blog.module.scss';
 import cn from 'clsx';
-import { type BlogData } from '@/shared/api/types';
 import { BlogCard } from './ui';
 import { Button } from '@/shared/ui';
-import { useEffect, useState } from 'react';
+import { useGetPostsQuery } from "@/shared/api/createApi";
+
 
 const TITLE = 'blog-section-title';
 
 export const Blog = () => {
-  const [posts = [], setPosts] = useState<BlogData[]>([]);
-  const [isLoad, setIsLoad] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const stopFetch = new AbortController();
-
-    const fetchPosts = async (url: string) => {
-      try {
-        const response = await fetch(url, { signal: stopFetch.signal });
-
-        if (!response.ok) {
-          throw new Error(`Ошибка HTTP: ${response.status}`);
-        }
-
-        setPosts(await response.json());
-      } catch (error) {
-        if (error instanceof Error) {
-          if (error.name === 'AbortError') {
-            return;
-          } else {
-            setError(error.message);
-          }
-        } else {
-          setError(`Mistaken HTTP: ${error}`);
-        }
-      } finally {
-        setIsLoad(false);
-      }
-    };
-
-    fetchPosts('http://localhost:3001/posts');
-
-    return () => {
-      stopFetch.abort();
-    };
-  }, []);
+ const { data = [], error, isLoading } = useGetPostsQuery();
 
   let content;
 
-  if (isLoad) {
+  if (isLoading) {
     content = (
       <span className={styles.statusText}>
         <span>Loading</span>
@@ -68,7 +32,7 @@ export const Blog = () => {
   } else {
     content = (
       <ul className={styles.list}>
-        {posts.map(({ id, title, date, imgBg, to }) => (
+        {data.map(({ id, title, date, imgBg, to }) => (
           <li key={id} className={styles.item}>
             <BlogCard date={date} imgBg={imgBg} title={title} to={to} />
           </li>
@@ -83,7 +47,7 @@ export const Blog = () => {
         <h2 id={TITLE} className={cn(styles.title, 'h3')}>
           What’s new?
         </h2>
-        {content}
+        <div aria-live="polite" className={styles.contentWrapper}>{content}</div>
         <Button to="/agency">all posts</Button>
       </div>
     </section>

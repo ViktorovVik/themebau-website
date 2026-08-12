@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { ProjectsData, ContactFormData } from './types';
+import type { ProjectsData, ContactFormData, BlogData } from './types';
 
 export const projectsApi = createApi({
   reducerPath: 'projectsApi',
@@ -15,7 +15,10 @@ export const projectsApi = createApi({
         body: formData,
       }),
     }),
+    getPosts: builder.query<BlogData[], void>({
+      query: () => `posts/`,
+    })
   }),
 });
 
-export const { useGetProjectsQuery, usePostMessageMutation } = projectsApi;
+export const { useGetProjectsQuery, usePostMessageMutation, useGetPostsQuery } = projectsApi;
