@@ -1,6 +1,6 @@
 import styles from './Blog.module.scss';
 import cn from 'clsx';
-import { type BlogData } from './config/blog.data';
+import { type BlogData } from '@/shared/api/types';
 import { BlogCard } from './ui';
 import { Button } from '@/shared/ui';
 import { useEffect, useState } from 'react';
@@ -26,9 +26,11 @@ export const Blog = () => {
         setPosts(await response.json());
       } catch (error) {
         if (error instanceof Error) {
-          // if (error.name === 'AbortError') {
-          // }
-          setError(error.message);
+          if (error.name === 'AbortError') {
+            return;
+          } else {
+            setError(error.message);
+          }
         } else {
           setError(`Mistaken HTTP: ${error}`);
         }
