@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import styles from './BlogCard.module.scss';
-import type { BlogData } from '../config/blog.data';
+import type { BlogData } from '@/shared/api';
 import cn from 'clsx';
 
 type Props = Omit<BlogData, 'id'> & { className?: string };
