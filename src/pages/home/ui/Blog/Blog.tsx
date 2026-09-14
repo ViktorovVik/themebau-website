@@ -2,13 +2,12 @@ import styles from './Blog.module.scss';
 import cn from 'clsx';
 import { BlogCard } from './ui';
 import { Button } from '@/shared/ui';
-import { useGetPostsQuery } from "@/shared/api/createApi";
-
+import { useGetPostsQuery } from '@/shared/api/createApi';
 
 const TITLE = 'blog-section-title';
 
 export const Blog = () => {
- const { data = [], error, isLoading } = useGetPostsQuery();
+  const { data = [], error, isLoading } = useGetPostsQuery();
 
   let content;
 
@@ -47,7 +46,9 @@ export const Blog = () => {
         <h2 id={TITLE} className={cn(styles.title, 'h3')}>
           What’s new?
         </h2>
-        <div aria-live="polite" className={styles.contentWrapper}>{content}</div>
+        <div aria-live="polite" className={styles.contentWrapper}>
+          {content}
+        </div>
         <Button to="/agency">all posts</Button>
       </div>
     </section>
