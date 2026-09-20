@@ -17,6 +17,18 @@ interface ContactFormProps {
   isOpen: boolean;
 }
 
+const SUCCESS = 'Message sent!';
+const ERROR = 'Something went wrong. Please try again!';
+
+const arrayStr = SUCCESS.split('');
+const letters = arrayStr.map((letter, index) => {
+  return (
+    <span style={{ '--index': index } as CSSProperties} key={index}>
+      {letter}
+    </span>
+  );
+});
+
 export const ContactForm = ({ isOpen }: ContactFormProps) => {
   const uniqId = useId();
 
@@ -52,20 +64,11 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
     triggerFn(formData);
   };
 
-  const arrayStr = 'Message sent!'.split('');
-  const letters = arrayStr.map((letter, index) => {
-    return (
-      <span style={{ '--index': index } as CSSProperties} key={index}>
-        {letter}
-      </span>
-    );
-  });
-
   return (
     <>
       <p aria-live="polite" className="visually-hidden">
-        {isSuccess && 'Message sent!'}
-        {isError && 'Something went wrong. Please try again!'}
+        {isSuccess && SUCCESS}
+        {isError && ERROR}
       </p>
       <p className={cn(styles.success, isSuccess && styles.show)}>{letters}</p>
       <form
@@ -147,11 +150,7 @@ export const ContactForm = ({ isOpen }: ContactFormProps) => {
             </button>
           )}
         </div>
-        {isError && (
-          <p className={styles.error}>
-            Something went wrong. Please try again.
-          </p>
-        )}
+        {isError && <p className={styles.error}>{ERROR}</p>}
         <Button disabled={isLoading} type="submit">
           {isLoading ? 'sending...' : 'contact us'}
         </Button>
